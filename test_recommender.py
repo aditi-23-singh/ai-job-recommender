@@ -6,8 +6,8 @@ from backend.ml.recommender import HybridRecommender, evaluate
 df = pd.read_csv("data/jobs_dataset.csv")
 
 # Convert skill columns from string back to list
-df["required_skills"]     = df["required_skills"].apply(lambda x: x.split("|"))
-df["nice_to_have_skills"] = df["nice_to_have_skills"].apply(lambda x: x.split("|"))
+df["required_skills"]     = df["required_skills"].apply(lambda x: x.split("|") if isinstance(x, str) else [])
+df["nice_to_have_skills"] = df["nice_to_have_skills"].apply(lambda x: x.split("|") if isinstance(x, str) else [])
 jobs = df.to_dict("records")
 
 print(f"Loaded {len(jobs)} jobs")

@@ -10,34 +10,55 @@ SKILL_TAXONOMY = {
         "python", "java", "c++", "c#", "javascript", "typescript", "go",
         "rust", "kotlin", "swift", "scala", "r", "matlab", "julia", "ruby",
         "php", "bash", "verilog", "systemverilog", "vhdl",
+        # LinkedIn abbreviations
+        "it", "cs", "se", "js",
     ],
     "ML / AI": [
         "machine learning", "deep learning", "neural networks", "nlp",
         "natural language processing", "computer vision", "tensorflow",
         "pytorch", "keras", "scikit-learn", "xgboost", "lightgbm",
         "transformers", "bert", "reinforcement learning", "mlops",
-        "feature engineering", "hugging face",
+        "feature engineering", "hugging face", "generative ai",
+        # LinkedIn abbreviations
+        "ml", "ai", "dl", "cv", "nlp",
     ],
     "Data": [
         "sql", "mysql", "postgresql", "mongodb", "redis", "elasticsearch",
         "hadoop", "spark", "kafka", "airflow", "dbt", "pandas", "numpy",
-        "tableau", "power bi", "data pipeline", "etl",
+        "tableau", "power bi", "data pipeline", "etl", "data analysis",
+        "data science", "data engineering", "data visualization",
+        # LinkedIn abbreviations
+        "da", "ds", "bi", "db",
     ],
     "Cloud & DevOps": [
         "aws", "azure", "gcp", "docker", "kubernetes", "terraform",
         "ansible", "jenkins", "github actions", "ci/cd", "linux", "git",
+        "cloud computing", "devops",
+        # LinkedIn abbreviations
+        "cd", "sre", "ops",
     ],
     "Web": [
         "react", "angular", "vue", "nextjs", "nodejs", "express", "django",
         "fastapi", "flask", "graphql", "rest api", "html", "css",
+        "web development", "frontend", "backend", "full stack",
+        # LinkedIn abbreviations
+        "wd", "fe", "be",
     ],
     "Embedded / Hardware": [
         "embedded systems", "stm32", "arduino", "fpga", "vlsi", "rtl",
         "pcb design", "firmware", "rtos", "can bus", "i2c", "spi", "uart",
         "microcontroller", "mips", "arm cortex", "cuda", "gpu programming",
+        "hardware design", "circuit design", "asic", "soc",
+        # LinkedIn abbreviations
+        "hw", "ee", "ece", "ic",
+    ],
+    "Soft Skills & Management": [
+        "project management", "agile", "scrum", "leadership", "communication",
+        "teamwork", "problem solving", "jira", "confluence",
+        # LinkedIn abbreviations
+        "pm", "mgmt", "mgr",
     ],
 }
-
 ALL_SKILLS = [s for skills in SKILL_TAXONOMY.values() for s in skills]
 
 DEGREE_PATTERNS = [

@@ -10,3 +10,9 @@ uploads/
 node_modules/
 dist/
 build/
+data/*.csv
+data/archive (1)/
+data/archive*/
+*.zip
+data/jobs_cleaned.csv
+data/jobs_dataset.csv
