@@ -6,57 +6,86 @@ from typing import Dict, List, Optional
 
 # ── Skill taxonomy ──────────────────────────────────────────────────────────
 SKILL_TAXONOMY = {
-    "Programming Languages": [
-        "python", "java", "c++", "c#", "javascript", "typescript", "go",
-        "rust", "kotlin", "swift", "scala", "r", "matlab", "julia", "ruby",
-        "php", "bash", "verilog", "systemverilog", "vhdl",
-        # LinkedIn abbreviations
-        "it", "cs", "se", "js",
+    "Information Technology": [
+        "information technology", "it", "software development", "programming",
+        "python", "java", "c++", "c#", "javascript", "typescript", "sql",
+        "database", "linux", "git", "docker", "kubernetes", "aws", "azure",
+        "gcp", "cloud computing", "devops", "ci/cd", "rest api", "microservices",
+        "machine learning", "deep learning", "artificial intelligence", "nlp",
+        "data science", "data analysis", "tableau", "power bi", "spark",
+        "tensorflow", "pytorch", "react", "nodejs", "django", "fastapi",
+        "cybersecurity", "networking", "system administration",
     ],
-    "ML / AI": [
-        "machine learning", "deep learning", "neural networks", "nlp",
-        "natural language processing", "computer vision", "tensorflow",
-        "pytorch", "keras", "scikit-learn", "xgboost", "lightgbm",
-        "transformers", "bert", "reinforcement learning", "mlops",
-        "feature engineering", "hugging face", "generative ai",
-        # LinkedIn abbreviations
-        "ml", "ai", "dl", "cv", "nlp",
+    "Engineering": [
+        "engineering", "mechanical engineering", "electrical engineering",
+        "civil engineering", "chemical engineering", "vlsi", "fpga", "rtl",
+        "verilog", "systemverilog", "embedded systems", "firmware", "rtos",
+        "stm32", "arduino", "pcb design", "circuit design", "autocad",
+        "solidworks", "matlab", "hardware design", "semiconductor", "asic",
+        "soc", "microcontroller", "arm cortex", "cuda", "gpu programming",
     ],
-    "Data": [
-        "sql", "mysql", "postgresql", "mongodb", "redis", "elasticsearch",
-        "hadoop", "spark", "kafka", "airflow", "dbt", "pandas", "numpy",
-        "tableau", "power bi", "data pipeline", "etl", "data analysis",
-        "data science", "data engineering", "data visualization",
-        # LinkedIn abbreviations
-        "da", "ds", "bi", "db",
+    "Management": [
+        "management", "project management", "program management",
+        "team management", "operations management", "product management",
+        "agile", "scrum", "kanban", "jira", "confluence", "leadership",
+        "strategic planning", "risk management", "stakeholder management",
     ],
-    "Cloud & DevOps": [
-        "aws", "azure", "gcp", "docker", "kubernetes", "terraform",
-        "ansible", "jenkins", "github actions", "ci/cd", "linux", "git",
-        "cloud computing", "devops",
-        # LinkedIn abbreviations
-        "cd", "sre", "ops",
+    "Sales & Business": [
+        "sales", "business development", "account management",
+        "customer relationship", "crm", "salesforce", "negotiation",
+        "b2b", "b2c", "revenue growth", "lead generation", "cold calling",
     ],
-    "Web": [
-        "react", "angular", "vue", "nextjs", "nodejs", "express", "django",
-        "fastapi", "flask", "graphql", "rest api", "html", "css",
-        "web development", "frontend", "backend", "full stack",
-        # LinkedIn abbreviations
-        "wd", "fe", "be",
+    "Finance & Accounting": [
+        "finance", "accounting", "financial analysis", "budgeting",
+        "forecasting", "excel", "financial modeling", "gaap", "auditing",
+        "tax", "accounts payable", "accounts receivable", "erp", "sap",
     ],
-    "Embedded / Hardware": [
-        "embedded systems", "stm32", "arduino", "fpga", "vlsi", "rtl",
-        "pcb design", "firmware", "rtos", "can bus", "i2c", "spi", "uart",
-        "microcontroller", "mips", "arm cortex", "cuda", "gpu programming",
-        "hardware design", "circuit design", "asic", "soc",
-        # LinkedIn abbreviations
-        "hw", "ee", "ece", "ic",
+    "Marketing": [
+        "marketing", "digital marketing", "seo", "sem", "social media",
+        "content marketing", "email marketing", "google analytics",
+        "brand management", "market research", "copywriting", "adobe",
     ],
-    "Soft Skills & Management": [
-        "project management", "agile", "scrum", "leadership", "communication",
-        "teamwork", "problem solving", "jira", "confluence",
-        # LinkedIn abbreviations
-        "pm", "mgmt", "mgr",
+    "Health Care": [
+        "health care", "healthcare", "nursing", "patient care", "clinical",
+        "medical", "pharmacy", "ehr", "hipaa", "public health",
+    ],
+    "Manufacturing & Supply Chain": [
+        "manufacturing", "supply chain", "logistics", "inventory management",
+        "lean manufacturing", "six sigma", "quality assurance", "quality control",
+        "procurement", "warehouse management", "erp",
+    ],
+    "Human Resources": [
+        "human resources", "hr", "recruitment", "talent acquisition",
+        "onboarding", "performance management", "employee relations",
+        "hris", "payroll", "compensation", "benefits",
+    ],
+    "Design & Creative": [
+        "design", "graphic design", "ui/ux", "user experience", "figma",
+        "adobe photoshop", "adobe illustrator", "sketch", "indesign",
+        "video editing", "art direction", "creative",
+    ],
+    "Customer Service": [
+        "customer service", "customer support", "client relations",
+        "call center", "help desk", "technical support", "zendesk",
+        "communication", "problem solving",
+    ],
+    "Research & Analytics": [
+        "research", "data analysis", "statistical analysis", "r",
+        "spss", "quantitative research", "qualitative research",
+        "market research", "business intelligence", "reporting",
+    ],
+    "Education & Training": [
+        "education", "training", "teaching", "curriculum development",
+        "instructional design", "e-learning", "coaching", "mentoring",
+    ],
+    "Legal": [
+        "legal", "contract management", "compliance", "regulatory",
+        "litigation", "corporate law", "intellectual property",
+    ],
+    "Administrative": [
+        "administrative", "office management", "scheduling",
+        "data entry", "microsoft office", "excel", "powerpoint",
+        "word", "organizational skills", "multitasking",
     ],
 }
 ALL_SKILLS = [s for skills in SKILL_TAXONOMY.values() for s in skills]

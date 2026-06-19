@@ -15,27 +15,74 @@ from typing import Dict, List
 # ── Course suggestions database ──────────────────────────────────────────────
 
 COURSE_DB = {
+    "information technology": [
+        {"title": "Google IT Support Professional Certificate", "platform": "Coursera", "level": "Beginner", "url": "https://www.coursera.org/professional-certificates/google-it-support"},
+        {"title": "IBM Full Stack Software Developer", "platform": "Coursera", "level": "Intermediate", "url": "https://www.coursera.org/professional-certificates/ibm-full-stack-cloud-developer"},
+    ],
     "python": [
         {"title": "Python for Everybody", "platform": "Coursera", "level": "Beginner", "url": "https://www.coursera.org/specializations/python"},
         {"title": "Complete Python Bootcamp", "platform": "Udemy", "level": "Beginner", "url": "https://www.udemy.com/course/complete-python-bootcamp/"},
     ],
     "machine learning": [
         {"title": "Machine Learning Specialization", "platform": "Coursera (Andrew Ng)", "level": "Intermediate", "url": "https://www.coursera.org/specializations/machine-learning-introduction"},
-        {"title": "Hands-On ML with Scikit-Learn & TensorFlow", "platform": "O'Reilly Book", "level": "Intermediate", "url": "https://www.oreilly.com/library/view/hands-on-machine-learning"},
+        {"title": "Hands-On ML with Scikit-Learn & TensorFlow", "platform": "O'Reilly", "level": "Intermediate", "url": "https://www.oreilly.com/library/view/hands-on-machine-learning"},
     ],
     "deep learning": [
         {"title": "Deep Learning Specialization", "platform": "Coursera (DeepLearning.AI)", "level": "Intermediate", "url": "https://www.coursera.org/specializations/deep-learning"},
     ],
-    "pytorch": [
-        {"title": "PyTorch for Deep Learning", "platform": "Udemy", "level": "Intermediate", "url": "https://www.udemy.com/course/pytorch-for-deep-learning/"},
-        {"title": "Fast.ai Practical Deep Learning", "platform": "fast.ai (Free)", "level": "Intermediate", "url": "https://course.fast.ai/"},
-    ],
-    "tensorflow": [
-        {"title": "TensorFlow Developer Certificate", "platform": "Coursera", "level": "Intermediate", "url": "https://www.coursera.org/professional-certificates/tensorflow-in-practice"},
-    ],
     "sql": [
         {"title": "SQL for Data Science", "platform": "Coursera", "level": "Beginner", "url": "https://www.coursera.org/learn/sql-for-data-science"},
         {"title": "The Complete SQL Bootcamp", "platform": "Udemy", "level": "Beginner", "url": "https://www.udemy.com/course/the-complete-sql-bootcamp/"},
+    ],
+    "management": [
+        {"title": "Google Project Management Certificate", "platform": "Coursera", "level": "Beginner", "url": "https://www.coursera.org/professional-certificates/google-project-management"},
+        {"title": "Project Management Professional (PMP)", "platform": "PMI", "level": "Advanced", "url": "https://www.pmi.org/certifications/project-management-pmp"},
+    ],
+    "project management": [
+        {"title": "Google Project Management Certificate", "platform": "Coursera", "level": "Beginner", "url": "https://www.coursera.org/professional-certificates/google-project-management"},
+        {"title": "Agile Project Management", "platform": "Coursera", "level": "Intermediate", "url": "https://www.coursera.org/learn/agile-project-management"},
+    ],
+    "sales": [
+        {"title": "Sales Training: Practical Sales Techniques", "platform": "Udemy", "level": "Beginner", "url": "https://www.udemy.com/course/sales-training-practical-sales-techniques/"},
+        {"title": "HubSpot Sales Software Certification", "platform": "HubSpot Academy (Free)", "level": "Beginner", "url": "https://academy.hubspot.com/courses/sales-software"},
+    ],
+    "business development": [
+        {"title": "Business Development & B2B Sales", "platform": "Udemy", "level": "Beginner", "url": "https://www.udemy.com/course/business-development-b2b-sales/"},
+        {"title": "Business Foundations Specialization", "platform": "Coursera (Wharton)", "level": "Intermediate", "url": "https://www.coursera.org/specializations/wharton-business-foundations"},
+    ],
+    "marketing": [
+        {"title": "Google Digital Marketing Certificate", "platform": "Coursera", "level": "Beginner", "url": "https://www.coursera.org/professional-certificates/google-digital-marketing-ecommerce"},
+        {"title": "Digital Marketing Specialization", "platform": "Coursera (UIUC)", "level": "Intermediate", "url": "https://www.coursera.org/specializations/digital-marketing"},
+    ],
+    "finance": [
+        {"title": "Financial Markets", "platform": "Coursera (Yale)", "level": "Beginner", "url": "https://www.coursera.org/learn/financial-markets-global"},
+        {"title": "Investment Management Specialization", "platform": "Coursera", "level": "Intermediate", "url": "https://www.coursera.org/specializations/investment-management"},
+    ],
+    "accounting": [
+        {"title": "Intuit Academy Bookkeeping Certificate", "platform": "Coursera", "level": "Beginner", "url": "https://www.coursera.org/professional-certificates/intuit-bookkeeping"},
+        {"title": "Accounting Fundamentals", "platform": "Coursera", "level": "Beginner", "url": "https://www.coursera.org/learn/uva-darden-getting-started-agile"},
+    ],
+    "human resources": [
+        {"title": "Human Resource Management", "platform": "Coursera", "level": "Beginner", "url": "https://www.coursera.org/learn/human-resource-management"},
+        {"title": "SHRM Certification Prep", "platform": "SHRM", "level": "Advanced", "url": "https://www.shrm.org/certification"},
+    ],
+    "customer service": [
+        {"title": "Customer Service Fundamentals", "platform": "Coursera", "level": "Beginner", "url": "https://www.coursera.org/learn/customer-service-fundamentals"},
+        {"title": "HubSpot Customer Service Certification", "platform": "HubSpot Academy (Free)", "level": "Beginner", "url": "https://academy.hubspot.com/courses/customer-service"},
+    ],
+    "manufacturing": [
+        {"title": "Lean Six Sigma Green Belt", "platform": "Coursera", "level": "Intermediate", "url": "https://www.coursera.org/learn/six-sigma-define-measure-advanced"},
+        {"title": "Supply Chain Management Specialization", "platform": "Coursera (Rutgers)", "level": "Intermediate", "url": "https://www.coursera.org/specializations/supply-chain-management"},
+    ],
+    "engineering": [
+        {"title": "Introduction to Engineering", "platform": "Coursera", "level": "Beginner", "url": "https://www.coursera.org/learn/introduction-engineering"},
+        {"title": "Embedded Systems - Shape The World", "platform": "edX (UT Austin)", "level": "Intermediate", "url": "https://www.edx.org/course/embedded-systems-shape-the-world-microcontroller-i"},
+    ],
+    "vlsi": [
+        {"title": "VLSI CAD: Logic to Layout", "platform": "Coursera (UIUC)", "level": "Intermediate", "url": "https://www.coursera.org/learn/vlsi-cad-logic"},
+    ],
+    "embedded systems": [
+        {"title": "Embedded Systems - Shape The World", "platform": "edX (UT Austin)", "level": "Beginner", "url": "https://www.edx.org/course/embedded-systems-shape-the-world-microcontroller-i"},
     ],
     "aws": [
         {"title": "AWS Certified Solutions Architect", "platform": "A Cloud Guru", "level": "Intermediate", "url": "https://acloudguru.com/course/aws-certified-solutions-architect-associate"},
@@ -44,42 +91,42 @@ COURSE_DB = {
     "docker": [
         {"title": "Docker & Kubernetes: The Practical Guide", "platform": "Udemy", "level": "Beginner", "url": "https://www.udemy.com/course/docker-kubernetes-the-practical-guide/"},
     ],
-    "kubernetes": [
-        {"title": "Certified Kubernetes Administrator", "platform": "Linux Foundation", "level": "Advanced", "url": "https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/"},
+    "data analysis": [
+        {"title": "Google Data Analytics Certificate", "platform": "Coursera", "level": "Beginner", "url": "https://www.coursera.org/professional-certificates/google-data-analytics"},
+        {"title": "IBM Data Analyst Professional Certificate", "platform": "Coursera", "level": "Beginner", "url": "https://www.coursera.org/professional-certificates/ibm-data-analyst"},
     ],
-    "react": [
-        {"title": "React - The Complete Guide", "platform": "Udemy", "level": "Beginner", "url": "https://www.udemy.com/course/react-the-complete-guide-incl-redux/"},
+    "design": [
+        {"title": "Google UX Design Certificate", "platform": "Coursera", "level": "Beginner", "url": "https://www.coursera.org/professional-certificates/google-ux-design"},
+        {"title": "Graphic Design Specialization", "platform": "Coursera (CalArts)", "level": "Beginner", "url": "https://www.coursera.org/specializations/graphic-design"},
+    ],
+    "research": [
+        {"title": "Understanding Research Methods", "platform": "Coursera", "level": "Beginner", "url": "https://www.coursera.org/learn/research-methods"},
+        {"title": "Data Science Research Methods", "platform": "edX", "level": "Intermediate", "url": "https://www.edx.org/course/data-science-research-methods-python-edition"},
+    ],
+    "supply chain": [
+        {"title": "Supply Chain Management Specialization", "platform": "Coursera (Rutgers)", "level": "Intermediate", "url": "https://www.coursera.org/specializations/supply-chain-management"},
+    ],
+    "quality assurance": [
+        {"title": "Software Testing and Automation", "platform": "Coursera", "level": "Beginner", "url": "https://www.coursera.org/specializations/software-testing-automation"},
+    ],
+    "consulting": [
+        {"title": "Strategy Consulting", "platform": "Coursera (BCG)", "level": "Intermediate", "url": "https://www.coursera.org/learn/strategy-consulting"},
+    ],
+    "health care provider": [
+        {"title": "Healthcare Organization Operations", "platform": "Coursera", "level": "Beginner", "url": "https://www.coursera.org/learn/healthcare-organization-operations"},
+    ],
+    "administrative": [
+        {"title": "Microsoft Office Specialist", "platform": "Microsoft", "level": "Beginner", "url": "https://learn.microsoft.com/en-us/certifications/mos-associate/"},
+        {"title": "Administrative Professional Certificate", "platform": "Coursera", "level": "Beginner", "url": "https://www.coursera.org/professional-certificates/administrative-professional"},
+    ],
+    "education": [
+        {"title": "Teaching the World: Innovative Education", "platform": "Coursera", "level": "Beginner", "url": "https://www.coursera.org/learn/teachingtheworld"},
+    ],
+    "legal": [
+        {"title": "Introduction to Corporate Finance and Law", "platform": "Coursera", "level": "Beginner", "url": "https://www.coursera.org/learn/corporate-finance-law"},
     ],
     "cuda": [
         {"title": "NVIDIA CUDA C++ Programming", "platform": "NVIDIA DLI", "level": "Advanced", "url": "https://courses.nvidia.com/courses/course-v1:DLI+C-AC-01+V1/"},
-        {"title": "Programming Massively Parallel Processors", "platform": "Book", "level": "Advanced", "url": "https://www.amazon.com/Programming-Massively-Parallel-Processors"},
-    ],
-    "vlsi": [
-        {"title": "VLSI CAD: Logic to Layout", "platform": "Coursera (UIUC)", "level": "Intermediate", "url": "https://www.coursera.org/learn/vlsi-cad-logic"},
-    ],
-    "embedded systems": [
-        {"title": "Embedded Systems - Shape the World", "platform": "edX (UT Austin)", "level": "Beginner", "url": "https://www.edx.org/course/embedded-systems-shape-the-world-microcontroller-i"},
-    ],
-    "nlp": [
-        {"title": "NLP Specialization", "platform": "Coursera (DeepLearning.AI)", "level": "Intermediate", "url": "https://www.coursera.org/specializations/natural-language-processing"},
-    ],
-    "spark": [
-        {"title": "Apache Spark with Python", "platform": "Udemy", "level": "Intermediate", "url": "https://www.udemy.com/course/apache-spark-with-python-big-data-with-pyspark-and-spark/"},
-    ],
-    "docker": [
-        {"title": "Docker for Beginners", "platform": "Udemy", "level": "Beginner", "url": "https://www.udemy.com/course/docker-kubernetes-the-practical-guide/"},
-    ],
-    "data pipeline": [
-        {"title": "Data Engineering with Python", "platform": "Coursera", "level": "Intermediate", "url": "https://www.coursera.org/professional-certificates/ibm-data-engineer"},
-    ],
-    "c++": [
-        {"title": "Beginning C++ Programming", "platform": "Udemy", "level": "Beginner", "url": "https://www.udemy.com/course/beginning-c-plus-plus-programming/"},
-    ],
-    "linux": [
-        {"title": "Linux Command Line Basics", "platform": "Udemy", "level": "Beginner", "url": "https://www.udemy.com/course/linux-command-line-volume1/"},
-    ],
-    "system design": [
-        {"title": "Grokking the System Design Interview", "platform": "Educative", "level": "Intermediate", "url": "https://www.educative.io/courses/grokking-modern-system-design-interview"},
     ],
 }
 

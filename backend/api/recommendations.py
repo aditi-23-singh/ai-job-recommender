@@ -129,3 +129,67 @@ def explain(job_id: int, db: Session = Depends(get_db),
         "experience_required": f"{job.experience_min}–{job.experience_max} yrs",
         "your_experience":     f"{profile.experience_years} yrs",
     }
+
+@router.get("/compare")
+def compare_approaches(
+    top_k:       int   = Query(10, ge=1, le=20),
+    db:          Session = Depends(get_db),
+    current_user: User   = Depends(get_current_user),
+):
+    """
+    Compare TF-IDF-only vs Hybrid approach side by side.
+    Returns both sets of recommendations for the same user profile.
+    """
+    from backend.ml.recommender import TFIDFEngine
+    import pickle, json
+
+    profile = db.query(UserProfile).filter(
+        UserProfile.user_id == current_user.id
+    ).first()
+    if not profile or not profile.skills:
+        raise HTTPException(400, "Upload your resume first.")
+
+    user_profile = profile_dict(profile)
+    rec          = get_recommender(db)
+
+    # ── Approach A: TF-IDF only ───────────────────────────────────────────────
+    tfidf_only        = HybridRecommender(alpha=1.0, beta=0.0)
+    tfidf_only._jobs  = rec._jobs
+    tfidf_only.tfidf  = rec.tfidf
+    tfidf_only.semantic = rec.semantic
+    tfidf_only._fitted  = True
+
+    tfidf_results = tfidf_only.recommend(user_profile, top_k=top_k)
+
+    # ── Approach B: Hybrid ────────────────────────────────────────────────────
+    hybrid_results = rec.recommend(user_profile, top_k=top_k)
+
+    def fmt(results, approach_name):
+        return [
+            {
+                "rank":           r.rank,
+                "job_id":         r.job_id,
+                "title":          r.title,
+                "company":        r.company,
+                "location":       r.location,
+                "required_skills": r.required_skills,
+                "score":          round(r.hybrid_score, 4),
+                "skill_overlap":  round(r.skill_overlap * 100, 1),
+                "approach":       approach_name,
+            }
+            for r in results
+        ]
+
+    return {
+        "user_skills":  profile.skills,
+        "approach_A": {
+            "name":        "TF-IDF + Cosine Similarity",
+            "description": "Keyword-based matching using term frequency. Fast but misses synonyms.",
+            "results":     fmt(tfidf_results, "TF-IDF"),
+        },
+        "approach_B": {
+            "name":        "Hybrid (TF-IDF + Semantic NLP Embeddings)",
+            "description": "Combines keyword matching with sentence-transformer semantic similarity. More robust.",
+            "results":     fmt(hybrid_results, "Hybrid"),
+        },
+    }

@@ -20,15 +20,15 @@ rec._jobs = jobs
 # ── Test profile (your profile) ───────────────────────────────────────────────
 my_profile = {
     "skills": [
-        "Python", "Verilog", "SystemVerilog", "VLSI", "FPGA", "RTL",
-        "STM32", "Embedded Systems", "Machine Learning", "NumPy", "Pandas", "Git", "C++"
+        "Information Technology", "Engineering", "Python",
+        "Machine Learning", "Embedded Systems", "VLSI",
+        "Management", "Research", "Data Analysis"
     ],
     "experience_years": 1,
-    "preferred_roles":  ["VLSI Engineer", "Embedded Systems Engineer"],
-    "industry_preferences": ["Semiconductor", "Electronics"],
-    "summary": "ECE final year student with VLSI and embedded systems background",
+    "preferred_roles":  ["Software Engineer", "Data Scientist", "Hardware Engineer"],
+    "industry_preferences": ["Information Technology", "Engineering"],
+    "summary": "ECE final year student with VLSI, embedded systems and ML background",
 }
-
 print("\n--- Top 10 Recommendations ---\n")
 results = rec.recommend(my_profile, top_k=10)
 for r in results:
@@ -47,33 +47,42 @@ print("\n--- Evaluation Metrics ---")
 # We'll define relevant jobs = same title category as profile
 vlsi_jobs    = [j["id"] for j in jobs if "VLSI" in j["title"]]
 embedded_jobs = [j["id"] for j in jobs if "Embedded" in j["title"] or "Firmware" in j["title"]]
-
 test_users = [
     {
         "profile": my_profile,
-        "relevant_job_ids": vlsi_jobs + embedded_jobs,
+        "relevant_job_ids": [
+            j["id"] for j in jobs
+            if any(k in j["title"].lower() for k in
+                   ["engineer", "developer", "data", "machine learning", "hardware"])
+        ],
     },
     {
         "profile": {
-            "skills": ["Python", "Machine Learning", "PyTorch", "Deep Learning", "NLP"],
+            "skills": ["Sales", "Business Development", "Management",
+                       "Customer Service", "Marketing"],
             "experience_years": 3,
-            "preferred_roles": ["ML Engineer"],
-            "industry_preferences": ["Technology"],
-            "summary": "ML engineer with NLP focus",
+            "preferred_roles": ["Sales Manager", "Business Development"],
+            "industry_preferences": ["Sales", "Business Development"],
+            "summary": "Sales and business development professional",
         },
-        "relevant_job_ids": [j["id"] for j in jobs
-                             if any(k in j["title"] for k in ["Machine Learning","Deep Learning","NLP","Data Scientist"])],
+        "relevant_job_ids": [
+            j["id"] for j in jobs
+            if any(k in j["title"].lower() for k in ["sales", "business", "account"])
+        ],
     },
     {
         "profile": {
-            "skills": ["Python", "SQL", "Spark", "Airflow", "Docker", "Kubernetes"],
+            "skills": ["Finance", "Accounting", "Management",
+                       "Research", "Analyst"],
             "experience_years": 4,
-            "preferred_roles": ["Data Engineer", "DevOps"],
-            "industry_preferences": ["Technology"],
-            "summary": "Data engineering and platform background",
+            "preferred_roles": ["Financial Analyst", "Accountant"],
+            "industry_preferences": ["Finance", "Accounting/Auditing"],
+            "summary": "Finance and accounting professional",
         },
-        "relevant_job_ids": [j["id"] for j in jobs
-                             if any(k in j["title"] for k in ["Data Engineer","DevOps","Site Reliability"])],
+        "relevant_job_ids": [
+            j["id"] for j in jobs
+            if any(k in j["title"].lower() for k in ["finance", "account", "analyst"])
+        ],
     },
 ]
 
