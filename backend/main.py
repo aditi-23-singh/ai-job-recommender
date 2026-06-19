@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
 from backend.models.database import engine, Base, SessionLocal
 from backend.api.auth            import router as auth_router
@@ -7,16 +8,16 @@ from backend.api.jobs            import router as jobs_router
 from backend.api.resume          import router as resume_router
 from backend.api.recommendations import router as rec_router
 from backend.api.skill_gap       import router as gap_router
-from backend.ml.dataset_loader   import load_csv_to_db
 
 # Create all DB tables
 Base.metadata.create_all(bind=engine)
 
 # Seed jobs on startup
 def seed():
+    from backend.startup import seed_jobs_if_empty
     db = SessionLocal()
     try:
-        load_csv_to_db(db)
+        seed_jobs_if_empty(db)
     finally:
         db.close()
 
@@ -24,7 +25,7 @@ seed()
 
 app = FastAPI(
     title="Job Recommender API",
-    description="ML-powered job recommendation system",
+    description="ML-powered job recommendation system using LinkedIn 2023-2024 data",
     version="1.0.0",
 )
 
@@ -45,7 +46,12 @@ app.include_router(gap_router,  prefix="/api/skill-gap",       tags=["Skill Gap"
 
 @app.get("/")
 def root():
-    return {"message": "Job Recommender API", "docs": "/docs"}
+    return {
+        "message": "Job Recommender API",
+        "version": "1.0.0",
+        "docs":    "/docs",
+        "status":  "running",
+    }
 
 @app.get("/health")
 def health():
