@@ -127,7 +127,7 @@ export default function App() {
           </span>
         </div>
 
-        <div style={{ padding: '24px 28px', maxWidth: 900 }}>
+        <div style={{ padding: '24px 28px' }}>
           {page === 'dashboard' && <Dashboard user={user} onNavigate={setPage} />}
           {page === 'resume' && <ResumePage />}
           {page === 'recommendations' && <RecommendationsPage onSelectJob={setSelectedJob} />}

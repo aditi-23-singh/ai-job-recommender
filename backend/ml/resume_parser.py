@@ -196,11 +196,24 @@ def extract_experience_years(text: str) -> float:
 
 def extract_education(text: str) -> List[Dict]:
     results = []
+    seen = set()
     for pat in DEGREE_PATTERNS:
         for match in re.finditer(pat, text, re.I):
-            ctx = text[max(0, match.start()-30): match.end()+100].strip()
-            results.append({"degree": match.group(0).upper(), "context": ctx[:120]})
+            # Get clean context — just forward looking
+            ctx = text[match.start(): match.end() + 150].strip()
+            # Clean up context
+            ctx = re.sub(r'\s+', ' ', ctx)[:150]
+            # Avoid duplicates
+            key = match.group(0).upper()
+            if key not in seen:
+                seen.add(key)
+                results.append({
+                    "degree":  key,
+                    "context": ctx,
+                })
     return results
+
+
 
 def extract_certifications(text: str) -> List[str]:
     found = []

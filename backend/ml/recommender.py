@@ -248,9 +248,9 @@ class HybridRecommender:
                         continue
 
             overlap = self._skill_overlap(user_skills, job.get("required_skills", []))
-            hybrid  = (self.alpha * tf_norm[i]
-                       + (1 - self.alpha) * se_norm[i]
-                       + self.beta * overlap)
+            hybrid  = min(1.0, (self.alpha * tf_norm[i]
+                         + (1 - self.alpha) * se_norm[i]
+                            + self.beta * overlap))
 
             results.append(RecommendationResult(
                 job_id           = jid,
